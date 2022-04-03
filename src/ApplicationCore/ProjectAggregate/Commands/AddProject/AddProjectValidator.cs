@@ -13,10 +13,10 @@ public class AddProjectValidator : AbstractValidator<AddProject>
         _projectReadRepository = projectReadRepository;
 
         RuleFor(x => x.Name)
-            .NotEmpty().WithMessage("ProjectName can not be empty.");
+            .NotEmpty().WithMessage("Name can not be empty.");
 
         RuleFor(x => x.Number)
-            .NotEmpty().WithMessage("ProjectNumber can not be empty.")
+            .NotEmpty().WithMessage("Number can not be empty.")
             .MustAsync(async (value, cancellationToken) => await UniqueProjectNumber(value, cancellationToken)).WithMessage("A project with this projectNumber exists.");
     }
 
