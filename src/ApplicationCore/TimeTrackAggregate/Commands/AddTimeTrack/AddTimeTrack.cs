@@ -25,7 +25,7 @@ public record AddTimeTrack(string ProjectNumber, string Task, TimeSpan TimeSpent
 
         public async Task<Guid> Handle(AddTimeTrack request, CancellationToken cancellationToken)
         {
-            var getTimeTrackByTodaySpecification = new GetTimeTrackByToday(_dateTime.Today);
+            var getTimeTrackByTodaySpecification = new GetTimeTrackByDate(_dateTime.Today);
             var getProjectByNumber = new ProjectByNumber(request.ProjectNumber);
             var timeTrack =
                 await _timeTrackRepository.GetBySpecAsync(getTimeTrackByTodaySpecification, cancellationToken);

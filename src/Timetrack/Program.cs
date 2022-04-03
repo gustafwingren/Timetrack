@@ -22,6 +22,7 @@ var runner = BuildCommandLine()
             services.AddInfrastructure(configuration);
         })
         .UseCommandHandler<CreateTimeTrackCommand, CreateTimeTrackCommand.Handler>()
+        .UseCommandHandler<ListTodayTracksCommand, ListTodayTracksCommand.Handler>()
         .UseCommandHandler<AddProjectCommand, AddProjectCommand.Handler>()
         .UseCommandHandler<ListProjectCommand, ListProjectCommand.Handler>())
     .UseDefaults()
@@ -44,6 +45,7 @@ static CommandLineBuilder BuildCommandLine()
         var timeTrack = new Command("time", "Track time management")
         {
             new CreateTimeTrackCommand(),
+            new ListTodayTracksCommand(),
         };
         return timeTrack;
     }
