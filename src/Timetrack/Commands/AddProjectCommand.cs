@@ -10,8 +10,8 @@ public class AddProjectCommand : Command
     public AddProjectCommand()
         : base("add", "Add a new project")
     {
-        AddArgument(new Argument<string>("projectName", "Name of the project"));
-        AddArgument(new Argument<int>("projectNumber", "Number of the project"));
+        AddArgument(new Argument<string>("Name", "Name of the project"));
+        AddArgument(new Argument<string>("Number", "Number of the project"));
     }
 
     public new class Handler : ICommandHandler
