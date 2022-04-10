@@ -2,5 +2,5 @@
 
 public abstract class BaseEntity
 {
-    public virtual Guid Id { get; protected set; }
+    public virtual Guid Id { get; set; }
 }

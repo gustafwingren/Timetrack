@@ -2,7 +2,7 @@
 using ApplicationCore.ProjectAggregate.Specifications;
 using FluentValidation;
 
-namespace ApplicationCore.ProjectAggregate.Commands.AddProject;
+namespace ApplicationCore.ProjectAggregate.Commands.AddProjectCommand;
 
 public class AddProjectValidator : AbstractValidator<AddProject>
 {
