@@ -14,11 +14,13 @@ public class DateTimeService
     [Fact]
     public void Now_ShouldReturnDateTimeNow()
     {
+        var expected = DateTime.Now;
+
         // Act
         var now = _sut.Now;
 
         // Assert
-        Assert.Equal(DateTime.Now, now);
+        Assert.Equal(expected.ToLongDateString(), now.ToLongDateString());
     }
 
     [Fact]
