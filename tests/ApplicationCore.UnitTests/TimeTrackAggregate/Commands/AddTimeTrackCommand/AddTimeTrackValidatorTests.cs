@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using ApplicationCore.Interfaces;
 using ApplicationCore.ProjectAggregate;
-using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack;
+using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 using Test.Shared;
 using Xunit;
 
-namespace ApplicationCore.UnitTests.TimeTrackAggregate.Commands.AddTimeTrack;
+namespace ApplicationCore.UnitTests.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 
 public class AddTimeTrackValidatorTests : UnitTestBase
 {
@@ -23,7 +23,7 @@ public class AddTimeTrackValidatorTests : UnitTestBase
     {
         // Arrange
         await AddDefaultProject();
-        var model = new ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack.AddTimeTrack("TestNumber", "Task",
+        var model = new ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand.AddTimeTrack("TestNumber", "Task",
             new TimeSpan(0, 0, 30), "Description");
 
         // Act
@@ -52,7 +52,7 @@ public class AddTimeTrackValidatorTests : UnitTestBase
         // Arrange
         TimeSpan.TryParse(timeSpent, out var timeSpentTimeSpan);
         await AddDefaultProject();
-        var model = new ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack.AddTimeTrack(projectNumber, task,
+        var model = new ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand.AddTimeTrack(projectNumber, task,
             timeSpentTimeSpan, description);
 
          // Act

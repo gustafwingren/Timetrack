@@ -1,7 +1,7 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.CommandLine.Parsing;
-using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack;
+using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 using MediatR;
 
 namespace Timetrack.Commands;

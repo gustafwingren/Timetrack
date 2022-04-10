@@ -4,8 +4,6 @@ namespace ApplicationCore.TimeTrackAggregate;
 
 public class TimeTrackItem : BaseEntity
 {
-    public Guid TimeTrackId { get; private set; }
-
     public Guid ProjectId { get; private set; }
 
     public Project? Project { get; private set; }

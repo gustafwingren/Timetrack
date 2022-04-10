@@ -3,9 +3,9 @@ using ApplicationCore.ProjectAggregate;
 using ApplicationCore.ProjectAggregate.Specifications;
 using FluentValidation;
 
-namespace ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack;
+namespace ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 
-public class AddTimeTrackValidator : AbstractValidator<AddTimeTrack>
+public class AddTimeTrackValidator : AbstractValidator<AddTimeTrackCommand.AddTimeTrack>
 {
     private readonly IReadRepository<Project> _projectReadRepository;
 

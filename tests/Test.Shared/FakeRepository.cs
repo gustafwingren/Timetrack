@@ -25,7 +25,7 @@ public class FakeRepository<T> :IReadRepository<T>, IRepository<T> where T: Base
 
     public Task<T?> GetBySpecAsync<TSpec>(TSpec specification, CancellationToken cancellationToken = new CancellationToken()) where TSpec : ISingleResultSpecification, ISpecification<T>
     {
-        return ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
+        return Task.FromResult(ApplySpecification(specification).FirstOrDefault());
     }
 
     public Task<TResult?> GetBySpecAsync<TResult>(ISpecification<T, TResult> specification,
@@ -80,7 +80,9 @@ public class FakeRepository<T> :IReadRepository<T>, IRepository<T> where T: Base
 
     public Task UpdateAsync(T entity, CancellationToken cancellationToken = new CancellationToken())
     {
-        throw new NotImplementedException();
+        _items.Remove(entity);
+        _items.Add(entity);
+        return Task.CompletedTask;
     }
 
     public Task DeleteAsync(T entity, CancellationToken cancellationToken = new CancellationToken())
