@@ -3,10 +3,10 @@ using Xunit;
 
 namespace Infrastructure.UnitTests.Services;
 
-public class DateTimeService
+public class DateTimeServiceTests
 {
     private readonly Infrastructure.Services.DateTimeService _sut;
-    public DateTimeService()
+    public DateTimeServiceTests()
     {
         _sut = new Infrastructure.Services.DateTimeService();
     }
