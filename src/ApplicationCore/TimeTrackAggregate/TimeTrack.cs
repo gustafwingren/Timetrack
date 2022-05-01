@@ -10,10 +10,6 @@ public class TimeTrack: BaseEntity, IAggregateRoot
 
     public TimeSpan TotalTime => _items.Aggregate(TimeSpan.Zero, (subtotal, item) => subtotal.Add(item.TimeSpent));
 
-    private TimeTrack()
-    {
-    }
-
     public TimeTrack(DateOnly date)
     {
         Date = date;

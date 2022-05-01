@@ -5,7 +5,7 @@ using ApplicationCore.ProjectAggregate.Specifications;
 using ApplicationCore.TimeTrackAggregate.Specifications;
 using MediatR;
 
-namespace ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack;
+namespace ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 
 public record AddTimeTrack(string ProjectNumber, string Task, TimeSpan TimeSpent, string? Description = null) : IRequest<Guid>
 {

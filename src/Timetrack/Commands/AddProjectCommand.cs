@@ -1,6 +1,6 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Invocation;
-using ApplicationCore.ProjectAggregate.Commands.AddProject;
+using ApplicationCore.ProjectAggregate.Commands.AddProjectCommand;
 using MediatR;
 
 namespace Timetrack.Commands;

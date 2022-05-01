@@ -2,18 +2,18 @@
 using ApplicationCore.Interfaces;
 using MediatR;
 
-namespace ApplicationCore.ProjectAggregate.Commands.AddProject;
+namespace ApplicationCore.ProjectAggregate.Commands.AddProjectCommand;
 
 public record AddProject(string Name, string Number) : IRequest<Guid>
 {
     public class Handler : IRequestHandler<AddProject, Guid>
     {
-        private readonly IRepository<Project> _projectReadRepository;
+        private readonly IRepository<Project> _projectRepository;
         private readonly IDateTime _dateTime;
 
-        public Handler(IRepository<Project> projectReadRepository, IDateTime dateTime)
+        public Handler(IRepository<Project> projectRepository, IDateTime dateTime)
         {
-            _projectReadRepository = projectReadRepository;
+            _projectRepository = projectRepository;
             _dateTime = dateTime;
         }
 
@@ -21,9 +21,9 @@ public record AddProject(string Name, string Number) : IRequest<Guid>
         {
             var newProject = new Project(request.Name, request.Number, _dateTime.Now);
 
-            await _projectReadRepository.AddAsync(newProject, cancellationToken);
+            var project = await _projectRepository.AddAsync(newProject, cancellationToken);
 
-            return newProject.Id;
+            return project.Id;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Invocation;
-using System.CommandLine.Parsing;
-using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrack;
+using ApplicationCore.TimeTrackAggregate.Commands.AddTimeTrackCommand;
 using MediatR;
+using Timetrack.Helpers;
 
 namespace Timetrack.Commands;
 
@@ -13,15 +13,10 @@ public class CreateTimeTrackCommand : Command
     {
         AddArgument(new Argument<string>("ProjectNumber", "Project number"));
         AddArgument(new Argument<string>("Task", "Task"));
-        AddArgument(new Argument<TimeSpan>("TimeSpent", ParseTimeSpan, false, "Time spent"));
+        AddArgument(new Argument<TimeSpan>("TimeSpent", ParseHelperMethods.ParseTimeSpan, false, "Time spent"));
         AddOption(new Option<string?>(new[] { "--description", "-d" }, "Description"));
     }
-
-    private static TimeSpan ParseTimeSpan(ArgumentResult result)
-    {
-        return TimeSpan.Parse(result.Tokens.Single().Value);
-    }
-
+    
     public new class Handler: ICommandHandler
     {
         private readonly IMediator _mediator;
